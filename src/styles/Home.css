@@ -1,0 +1,33 @@
+.home-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .home-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .home-subheading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 30px;
+  }
+  
+  .home-blogList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .home-loading, .home-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 40px;
+  }
+  
