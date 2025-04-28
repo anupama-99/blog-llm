@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import API from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import API from '../services/api';
+import '../styles/CreateBlog.css';
 
 function CreateBlog() {
   const [topic, setTopic] = useState('');
@@ -11,38 +12,29 @@ function CreateBlog() {
     try {
       const res = await API.post('/llm/generate', { topic });
       const blog = res.data;
-      await API.post('/blogs', blog); // Save the generated blog
+      await API.post('/blogs', blog);
       alert('Blog Created Successfully!');
-      navigate('/');
+      navigate('/blogs');
     } catch (error) {
-      console.error('Error creating blog:', error);
+      alert('Failed to create blog.');
     }
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Create Blog</h2>
-      <form onSubmit={handleGenerateBlog} style={styles.form}>
-        <input
-          type="text"
-          placeholder="Enter a topic..."
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          required
-          style={styles.input}
+    <div className="create-blog-container">
+      <h2 className="create-blog-title">Create a New Blog ✨</h2>
+      <form className="create-blog-form" onSubmit={handleGenerateBlog}>
+        <input 
+          type="text" 
+          placeholder="Enter blog topic..." 
+          value={topic} 
+          onChange={(e) => setTopic(e.target.value)} 
+          required 
         />
-        <button type="submit" style={styles.button}>Generate Blog</button>
+        <button type="submit" className="create-blog-button">Generate Blog</button>
       </form>
     </div>
   );
 }
 
-const styles = {
-  form: { display: 'flex', flexDirection: 'column', width: '300px', margin: 'auto' },
-  input: { marginBottom: '10px', padding: '10px' },
-  button: { padding: '10px', backgroundColor: '#28a745', color: 'white', border: 'none' }
-};
-
 export default CreateBlog;
-
-  

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import API from '../services/api';
+import '../styles/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -13,22 +14,21 @@ function Login() {
       const res = await API.post('/login', { email, password });
       localStorage.setItem('token', res.data.token);
       alert('Login Successful!');
-      navigate('/');
+      navigate('/blogs');
     } catch (error) {
-      alert('Login Failed!');
+      alert('Login Failed! Please check your credentials.');
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin} style={styles.form}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h2>Login to WriteLabs</h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={styles.input}
           required
         />
         <input
@@ -36,22 +36,15 @@ function Login() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          style={styles.input}
           required
         />
-        <button type="submit" style={styles.button}>Login</button>
+        <button type="submit">Login</button>
+        <p className="login-register-link">
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </form>
     </div>
   );
 }
 
-const styles = {
-  container: { marginTop: '50px', textAlign: 'center' },
-  form: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
-  input: { margin: '10px', padding: '10px', width: '300px' },
-  button: { padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none' }
-};
-
 export default Login;
-
-  

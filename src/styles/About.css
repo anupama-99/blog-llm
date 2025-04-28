@@ -1,0 +1,204 @@
+/* Base Container */
+.about-container {
+  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #040c15; /* Dark navy */
+  color: white;
+  text-align: center;
+  padding: 100px 20px 80px;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #00bfff;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #c0d3e8;
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: #040c15;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Why Choose Us Section */
+.why-choose-section {
+  padding: 80px 20px;
+  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+  text-align: center;
+}
+
+.why-choose-section h2 {
+  font-size: 2.5rem;
+  color: #040c15;
+  margin-bottom: 40px;
+}
+
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature-item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateY(-8px);
+}
+
+.feature-item h3 {
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Who We Help Section */
+.who-we-help-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.who-we-help-section h2 {
+  font-size: 2.5rem;
+  color: #040c15;
+  margin-bottom: 40px;
+}
+
+.help-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.help-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 280px;
+  transition: transform 0.3s;
+}
+
+.help-card:hover {
+  transform: translateY(-8px);
+}
+
+.help-card h3 {
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.help-card p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  padding: 80px 20px;
+  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+  text-align: center;
+}
+
+.how-it-works-section h2 {
+  font-size: 2.5rem;
+  color: #040c15;
+  margin-bottom: 40px;
+}
+
+.steps-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.step-item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 260px;
+  transition: transform 0.3s;
+}
+
+.step-item:hover {
+  transform: translateY(-8px);
+}
+
+.step-item h3 {
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.step-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Call To Action Section */
+.cta-section {
+  padding: 80px 20px;
+  background-color: #040c15;
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #c0d3e8;
+}
