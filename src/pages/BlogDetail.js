@@ -1,74 +1,39 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import API from '../services/api';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import '../styles/BlogDetail.css';
 
 function BlogDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [blog, setBlog] = useState(null);
-  const [comment, setComment] = useState('');
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    async function fetchBlog() {
-      try {
-        const res = await API.get(`/blogs/${id}`);
-        setBlog(res.data);
-        setComments(res.data.comments || []);
-      } catch (error) {
-        console.error('Error fetching blog:', error);
-      }
-    }
-    fetchBlog();
-  }, [id]);
+    const mockBlogs = [
+      { _id: '1', title: 'AI in Daily Life', content: 'This is a full blog about AI in life...', category: 'AI', image: 'https://source.unsplash.com/featured/?ai' },
+      { _id: '2', title: 'Backpacking Europe', content: 'Here’s a full guide to backpacking Europe...', category: 'Travel' },
+      { _id: '3', title: 'Healthy Eating Habits', content: 'These habits will help improve your health...', category: 'Health', image: 'https://source.unsplash.com/featured/?healthy-food' },
+    ];
 
-  const handleComment = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await API.post(`/blogs/${id}/comments`, { comment });
-      setComments([...comments, res.data]);
-      setComment('');
-    } catch (error) {
-      console.error('Error adding comment:', error);
+    const found = mockBlogs.find((b) => b._id === id);
+    if (found) {
+      setBlog(found);
+    } else {
+      navigate('/');
     }
-  };
+  }, [id, navigate]);
 
-  if (!blog) return <div>Loading...</div>;
+  if (!blog) return <p className="blog-loading">Loading blog...</p>;
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>{blog.title}</h2>
-      <p>{blog.content}</p>
-
-      <hr />
-      <h4>Comments</h4>
-      {comments.map((cmt, index) => (
-        <div key={index} style={styles.comment}>
-          {cmt.text}
-        </div>
-      ))}
-
-      <form onSubmit={handleComment} style={styles.form}>
-        <input
-          type="text"
-          placeholder="Write a comment..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <button type="submit" style={styles.button}>Comment</button>
-      </form>
+    <div className="blog-detail-container">
+      <div className="blog-detail-card">
+        <h1 className="blog-detail-title">{blog.title}</h1>
+        {blog.image && <img src={blog.image} alt={blog.title} className="blog-detail-image" />}
+        <p className="blog-detail-content">{blog.content}</p>
+        <button onClick={() => navigate(-1)} className="back-button">← Go Back</button>
+      </div>
     </div>
   );
 }
 
-const styles = {
-  form: { marginTop: '10px', display: 'flex', flexDirection: 'column', width: '300px' },
-  input: { marginBottom: '10px', padding: '10px' },
-  button: { padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none' },
-  comment: { backgroundColor: '#f1f1f1', padding: '8px', marginTop: '5px', borderRadius: '5px' }
-};
-
 export default BlogDetail;
-
-  

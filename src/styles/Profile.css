@@ -1,0 +1,44 @@
+.profile-container {
+    padding: 100px 20px 40px;
+    background: linear-gradient(145deg, #d0e8ff, #ffffff);
+    min-height: 100vh;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .profile-info {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+  
+  .profile-info p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .profile-blogs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  
+  .profile-blog-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .profile-blog-card h3 {
+    color: #040c15;
+    margin-bottom: 10px;
+  }
+  
+  .profile-blog-card p {
+    color: #555;
+  }
+  

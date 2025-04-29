@@ -1,19 +1,18 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
-import logo from '../assets/logo.png'; //  Import your logo image (put logo.png inside src/assets/)
+import logo from '../assets/logo.png';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const token = localStorage.getItem('token');
+  const isLanding = location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register';
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     alert('Logged out successfully!');
     navigate('/login');
   };
-
-  const isLanding = location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register';
 
   return (
     <nav className="navbar">
@@ -34,6 +33,7 @@ function Navbar() {
           <>
             <Link to="/blogs" className="nav-button">Home</Link>
             <Link to="/create" className="nav-button">Create Blog</Link>
+            <Link to="/profile" className="nav-button">Profile</Link>
             <button onClick={handleLogout} className="nav-button logout-button">Logout</button>
           </>
         ) : (

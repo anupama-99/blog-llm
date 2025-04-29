@@ -1,35 +1,98 @@
 .home-container {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  padding: 100px 20px 50px;
+  background: linear-gradient(145deg, #d0e8ff, #ffffff);
   min-height: 100vh;
+  text-align: center;
 }
 
-.home-heading {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 10px;
-  color: #007bff;
+.search-and-category-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #00bfff;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.scroll-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+.category-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 5px 0;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-button {
+  white-space: nowrap;
+  padding: 10px 20px;
+  border: 2px solid #00bfff;
+  background-color: white;
+  color: #00bfff;
   font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.home-subheading {
-  text-align: center;
-  font-size: 1.4rem;
-  color: #555;
-  margin-bottom: 40px;
+.category-button:hover,
+.category-button.active {
+  background-color: #00bfff;
+  color: white;
 }
 
-.home-loading, .home-empty {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #888;
-  margin-top: 50px;
+.scroll-btn {
+  background-color: #ffffff;
+  border: 2px solid #00bfff;
+  color: #00bfff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.home-blogList {
+.scroll-btn:hover {
+  background-color: #00bfff;
+  color: white;
+}
+
+.home-blog-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
+  padding: 0 10px;
+}
+
+.home-loading,
+.home-empty {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 40px;
 }

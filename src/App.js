@@ -6,6 +6,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import CreateBlog from './pages/CreateBlog';
 import ProtectedRoute from './components/ProtectedRoute'; // 👈 Import ProtectedRoute
+import BlogDetail from './pages/BlogDetail';
+import Profile from './pages/Profile';
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
         <Route path="/" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/profile" element={<Profile />} />
         
         {/* Protected Routes */}
         <Route 
