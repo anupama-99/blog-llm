@@ -1,13 +1,25 @@
+/* Full blue-themed background */
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #d0e8ff, #e3f2fd); /* Light blue gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form container remains white */
 .register-container {
   max-width: 450px;
-  margin: 60px auto;
+  width: 90%;
+  margin: 0 auto;
   padding: 40px;
-  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
+/* Form layout */
 .register-form {
   display: flex;
   flex-direction: column;
@@ -17,28 +29,52 @@
   margin-bottom: 18px;
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #007bff;
+  border: 1px solid #00bfff;
   border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
+.register-form input:focus {
+  border-color: #0099cc;
+}
+
+/* Terms */
 .terms {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   font-size: 0.9rem;
   color: #555;
+  text-align: left;
 }
 
+.terms input[type="checkbox"] {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0; /* prevent checkbox from shrinking */
+}
+
+.terms label {
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+/* Button */
 .register-button {
   padding: 12px;
-  background-color: #007bff;
+  background-color: #00bfff;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .register-button:hover {
-  background-color: #0056b3;
+  background-color: #0099cc;
 }
