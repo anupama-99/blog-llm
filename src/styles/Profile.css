@@ -1,44 +1,208 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
 .profile-container {
-    padding: 100px 20px 40px;
-    background: linear-gradient(145deg, #d0e8ff, #ffffff);
-    min-height: 100vh;
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  .profile-info {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-  }
-  
-  .profile-info p {
-    font-size: 1.1rem;
-    color: #333;
-    margin: 10px 0;
-  }
-  
-  .profile-blogs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  
-  .profile-blog-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-  
-  .profile-blog-card h3 {
-    color: #040c15;
-    margin-bottom: 10px;
-  }
-  
-  .profile-blog-card p {
-    color: #555;
-  }
-  
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #004080;
+  margin-bottom: 40px;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-buttons button {
+  padding: 10px 25px;
+  background-color: white;
+  border: 2px solid #007bff;
+  color: #007bff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.profile-buttons button:hover,
+.profile-buttons .active {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-info {
+  background-color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  padding: 25px 30px;
+  border-left: 6px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.profile-blogs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.profile-blog-card {
+  background-color: #ffffff;
+  border-left: 6px solid #007bff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.profile-blog-card:hover {
+  transform: translateY(-4px);
+}
+
+.profile-blog-card h3 {
+  color: #2d4b6a;
+  margin-bottom: 5px;
+}
+
+.profile-blog-card .blog-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.profile-blog-card p {
+  color: #444;
+}
+
+.blog-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.blog-actions a,
+.blog-actions button {
+  padding: 6px 14px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.blog-actions a:hover,
+.blog-actions button:hover {
+  background-color: #0056b3;
+}
+
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-dialog {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-dialog h3 {
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.edit-dialog input[type="text"],
+.edit-dialog textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.edit-dialog input[type="file"] {
+  margin-top: 10px;
+}
+
+.edit-preview {
+  margin-top: 10px;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.edit-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-buttons .cancel {
+  background-color: #aaa;
+}
